@@ -2,13 +2,15 @@ import { NgModule, ApplicationRef } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
 import { FormsModule } from '@angular/forms';
+import { MaterialModule } from '@angular/material';
+
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { RankingComponent } from './ranking/ranking.component';
 
-import { ApiService } from './shared';
+import { Config } from './services/config/config'
 import { routing } from './app.routing';
 
 import { removeNgStyles, createNewHosts } from '@angularclass/hmr';
@@ -18,7 +20,8 @@ import { removeNgStyles, createNewHosts } from '@angularclass/hmr';
     BrowserModule,
     HttpModule,
     FormsModule,
-    routing
+    routing,
+    MaterialModule.forRoot()
   ],
   declarations: [
     AppComponent,
@@ -27,7 +30,7 @@ import { removeNgStyles, createNewHosts } from '@angularclass/hmr';
     RankingComponent
   ],
   providers: [
-    ApiService
+    Config
   ],
   bootstrap: [AppComponent]
 })
