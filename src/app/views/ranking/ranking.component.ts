@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {OMDbApi} from '../services/omdb-api/omdb'
+import {OMDbApi} from '../../services/omdb-api/omdb'
 
 @Component({
   selector: 'ranking',
-  templateUrl: './ranking.component.html',
-  styleUrls: ['./ranking.component.scss'],
+  templateUrl: 'ranking.component.html',
+  styleUrls: ['ranking.component.scss'],
   providers: [OMDbApi]
 })
 export class RankingComponent implements OnInit {
