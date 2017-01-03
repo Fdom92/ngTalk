@@ -1,3 +1,16 @@
-<p>
-  ranking Works!
-</p>
+<h3 class="content-title">Welcome to the Ranking</h3>
+<p class="content-text">Here you can find the rating for Game of Thrones episodes</p>
+
+<md-card *ngFor="let episode of episodes">
+  <md-card-title> {{episode.Title}} </md-card-title>
+  <md-card-content>
+    <div>
+      <span> Rate: </span>
+      <span> {{episode.imdbRating}} </span>
+    </div>
+    <div class="date">
+      <span> Date: </span>
+      <span> {{episode.Released}} </span>
+    </div>
+  </md-card-content>
+</md-card>

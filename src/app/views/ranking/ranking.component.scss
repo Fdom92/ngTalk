@@ -1,3 +1,36 @@
-* {
-  color: #f87c08;
+md-card {
+    margin: 10px;
+}
+
+md-card-title {
+    color: #121212;
+    font-size: 20px;
+    font-weight: 400;
+}
+
+md-card-content {
+    display: flex;
+    color: rgba(0,0,0,.54);
+    font-size: 16px;
+    line-height: 28px;
+
+    .date {
+        margin-left: 10px;
+    }
+}
+
+.content-title {
+    color: rgba(0,0,0,.54);
+    font-size: 20px;
+    font-weight: 400;
+    margin-top: 100px;
+    margin-left: 10px;
+}
+
+.content-text {
+    color: rgba(0,0,0,.54);
+    font-size: 16px;
+    line-height: 28px;
+    margin-top: 20px;
+    margin-left: 10px;
 }
