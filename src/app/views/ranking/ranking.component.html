@@ -17,21 +17,24 @@
         </md-select>
       </td>
       <td>
+        <md-select formControlName="type" placeholder="Select type">
+          <md-option *ngFor="let type of types" [value]="type.value">
+            {{ type.viewValue }}
+          </md-option>
+        </md-select>
+      </td>
+      <td>
         <button md-button (click)="filter()">Go Filter!</button>
       </td>
     </tr>
   </table>
 </form>
 <md-card *ngFor="let result of results">
-  <md-card-title> {{result.original_title}} </md-card-title>
+  <md-card-title> {{result.original_title || result.original_name}} </md-card-title>
   <md-card-content>
     <div>
       <span> Rate: </span>
       <span> {{result.vote_average}} </span>
-    </div>
-    <div class="date">
-      <span> Date: </span>
-      <span> {{result.release_date}} </span>
     </div>
   </md-card-content>
 </md-card>

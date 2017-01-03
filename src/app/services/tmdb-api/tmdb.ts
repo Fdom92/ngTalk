@@ -17,4 +17,13 @@ export class TMDbApi {
             err => err
         );
     }
+
+    discoverTV(year: number, sort: string) {
+        let url = `${this.urlApi}discover/tv?api_key=${this.apiKey}&language=en-US&sort_by=${sort}` +
+                  `&include_adult=false&include_video=false&page=1&year=${year}`;
+        return this.http.get(url).toPromise().then(
+            response => response.json(),
+            err => err
+        );
+    }
 }

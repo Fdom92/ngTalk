@@ -17,6 +17,7 @@ class Option {
 export class RankingComponent implements OnInit {
   results: Array<any>;
   options: Array<Option>;
+  types: Array<Option>;
   filterForm: FormGroup;
 
   constructor( private TMDbApiService: TMDbApi, private formBuilder: FormBuilder) {
@@ -29,9 +30,15 @@ export class RankingComponent implements OnInit {
       {value: 'vote_count.asc', viewValue: 'Vote Count Asc'}
     ];
 
+    this.types  = [
+      {value: 'movie', viewValue: 'Movies'},
+      {value: 'tv', viewValue: 'Tv'}
+    ];
+
     this.filterForm = this.formBuilder.group({
         year:   ['', Validators.required],
-        filter: ['', Validators.required]
+        filter: ['', Validators.required],
+        type: ['', Validators.required]
     });
   }
 
@@ -40,11 +47,25 @@ export class RankingComponent implements OnInit {
   }
 
   filter() {
-    this.getData(this.filterForm.value.year , this.filterForm.value.filter);
+    switch (this.filterForm.value.type) {
+      case 'movie':
+        this.getMovieData(this.filterForm.value.year , this.filterForm.value.filter);
+        break;
+      case 'tv':
+        this.getTvData(this.filterForm.value.year , this.filterForm.value.filter);
+        break;
+    }
   }
 
-  getData(year, filterBy) {
+  getMovieData(year, filterBy) {
     this.TMDbApiService.discoverMovies(year, filterBy).then(
+        (response: any) => { this.results = response.results; },
+        (err: any) => { console.log(err); }
+    );
+  }
+
+  getTvData(year, filterBy) {
+    this.TMDbApiService.discoverTV(year, filterBy).then(
         (response: any) => { this.results = response.results; },
         (err: any) => { console.log(err); }
     );
