@@ -1,12 +1,11 @@
 import { NgModule, ApplicationRef } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule } from '@angular/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MaterialModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './views/home/home.component';
-import { AboutComponent } from './views/about/about.component';
 import { RankingComponent } from './views/ranking/ranking.component';
 
 import { Config } from './services/config/config';
@@ -19,13 +18,13 @@ import { removeNgStyles, createNewHosts } from '@angularclass/hmr';
     BrowserModule,
     HttpModule,
     FormsModule,
+    ReactiveFormsModule,
     routing,
     MaterialModule.forRoot()
   ],
   declarations: [
     AppComponent,
     HomeComponent,
-    AboutComponent,
     RankingComponent
   ],
   providers: [

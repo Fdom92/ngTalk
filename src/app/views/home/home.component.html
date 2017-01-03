@@ -1,2 +1,42 @@
 <h3 class="content-title">Welcome to ngTalk</h3>
-<p class="content-text">This is the home page in this talk just press some links and enjoy this</p>
+<p class="content-text">This is the home page in this talk just press some links and enjoy this. If you want leave us an opinion complete the form below.</p>
+
+<form class="example-form md-elevation-z6">
+
+  <table class="example-full-width" cellspacing="0"><tr>
+    <td><md-input-container class="example-full-width">
+      <input md-input placeholder="First name">
+    </md-input-container></td>
+    <td><md-input-container class="example-full-width">
+      <input md-input placeholder="Last Name">
+    </md-input-container></td>
+  </tr></table>
+
+  <p>
+    <md-input-container class="example-full-width">
+      <textarea md-input placeholder="Address"></textarea>
+    </md-input-container>
+    <md-input-container class="example-full-width">
+      <textarea md-input placeholder="Address 2"></textarea>
+    </md-input-container>
+  </p>
+
+  <table class="example-full-width" cellspacing="0"><tr>
+    <td><md-input-container class="example-full-width">
+      <input md-input placeholder="City">
+    </md-input-container></td>
+    <td><md-input-container class="example-full-width">
+      <input md-input placeholder="State">
+    </md-input-container></td>
+    <td><md-input-container class="example-full-width">
+      <input md-input #postalCode maxlength="5" placeholder="Postal Code">
+      <md-hint align="end">{{postalCode.value.length}} / 5</md-hint>
+    </md-input-container></td>
+  </tr></table>
+
+  <p>
+    <md-input-container class="example-full-width">
+      <textarea md-input placeholder="Opinion"></textarea>
+    </md-input-container>
+  </p>
+</form>

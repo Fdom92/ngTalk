@@ -1,16 +1,37 @@
 <h3 class="content-title">Welcome to the Ranking</h3>
-<p class="content-text">Here you can find the rating for Game of Thrones episodes</p>
-
-<md-card *ngFor="let episode of episodes">
-  <md-card-title> {{episode.Title}} </md-card-title>
+<p class="content-text">Here you can find the rating for every thing you want</p>
+<form novalidate [formGroup]="filterForm">
+  <table cellspacing="0">
+    <tr>
+      <td>
+        <md-input-container>
+          <input formControlName="year" md-input #year maxlength="4" placeholder="Year">
+          <md-hint align="end">{{year.value.length}} / 4</md-hint>
+        </md-input-container>
+      </td>
+      <td>
+        <md-select formControlName="filter" placeholder="Filter by">
+          <md-option *ngFor="let option of options" [value]="option.value">
+            {{ option.viewValue }}
+          </md-option>
+        </md-select>
+      </td>
+      <td>
+        <button md-button (click)="filter()">Go Filter!</button>
+      </td>
+    </tr>
+  </table>
+</form>
+<md-card *ngFor="let result of results">
+  <md-card-title> {{result.original_title}} </md-card-title>
   <md-card-content>
     <div>
       <span> Rate: </span>
-      <span> {{episode.imdbRating}} </span>
+      <span> {{result.vote_average}} </span>
     </div>
     <div class="date">
       <span> Date: </span>
-      <span> {{episode.Released}} </span>
+      <span> {{result.release_date}} </span>
     </div>
   </md-card-content>
 </md-card>
