@@ -1,4 +1,15 @@
-// component styles are encapsulated and only applied to their components
-* {
-  color: #FFEF00;
+.content-title {
+    color: rgba(0,0,0,.54);
+    font-size: 20px;
+    font-weight: 400;
+    margin-bottom: 30px;
+    margin-top: 80px;
+}
+
+.content-text {
+    color: rgba(0,0,0,.54);
+    font-size: 16px;
+    line-height: 28px;
+    margin-top: 16px;
+    margin-bottom: 16px;
 }
