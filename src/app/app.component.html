@@ -6,7 +6,7 @@
     </nav>
     <a md-button class="login" [routerLink]="['login']" *ngIf="!checkUserLogin()">{{ 'Login' | uppercase }}</a>
     <div class="login" *ngIf="checkUserLogin()">
-      <span>{{ username }}</span>
+      <a class="username" href="/profile">{{ username }}</a>
       <a md-button (click)="logout()">{{ 'Log out' | uppercase }}</a>
     </div>
   </md-toolbar>
