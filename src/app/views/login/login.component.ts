@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, OnInit }                  from '@angular/core';
 
 import {Auth} from '../../services/auth/auth';
 
@@ -10,7 +10,6 @@ import {Auth} from '../../services/auth/auth';
   providers: [Auth]
 })
 export class LoginComponent implements OnInit {
-  results: Array<any>;
   filterForm: FormGroup;
 
   constructor( private auth: Auth, private formBuilder: FormBuilder) {
@@ -23,16 +22,9 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {}
 
-  login(){
-    this.auth.createSession(this.filterForm.value.id,this.filterForm.value.pwd).then(
-        data =>{
-          console.log("LOGIN OK",data)
-        }, err => {
-          console.log("ERR",err)
-        }
-    );
-
-
+  login() {
+    this.auth.createSession(this.filterForm.value.id, this.filterForm.value.pwd)
+      .then( data => { console.log('LOGIN OK', data); },
+             err  => { console.log('ERR', err); });
   }
-
 }
