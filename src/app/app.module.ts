@@ -7,6 +7,8 @@ import { MaterialModule } from '@angular/material';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './views/home/home.component';
 import { RankingComponent } from './views/ranking/ranking.component';
+import { LoginComponent } from './views/login/login.component';
+
 
 import { Config } from './services/config/config';
 import { routing } from './app.routing';
@@ -25,7 +27,8 @@ import { removeNgStyles, createNewHosts } from '@angularclass/hmr';
   declarations: [
     AppComponent,
     HomeComponent,
-    RankingComponent
+    RankingComponent,
+    LoginComponent
   ],
   providers: [
     Config
