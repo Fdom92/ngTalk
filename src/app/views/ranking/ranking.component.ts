@@ -49,23 +49,16 @@ export class RankingComponent implements OnInit {
   filter() {
     switch (this.filterForm.value.type) {
       case 'movie':
-        this.getMovieData(this.filterForm.value.year , this.filterForm.value.filter);
+        this.getData('movie', this.filterForm.value.year , this.filterForm.value.filter);
         break;
       case 'tv':
-        this.getTvData(this.filterForm.value.year , this.filterForm.value.filter);
+        this.getData('tv', this.filterForm.value.year , this.filterForm.value.filter);
         break;
     }
   }
 
-  getMovieData(year, filterBy) {
-    this.TMDbApiService.discoverMovies(year, filterBy).then(
-        (response: any) => { this.results = response.results; },
-        (err: any) => { console.log(err); }
-    );
-  }
-
-  getTvData(year, filterBy) {
-    this.TMDbApiService.discoverTV(year, filterBy).then(
+  getData(type, year, filterBy) {
+    this.TMDbApiService.discover(type, year, filterBy).then(
         (response: any) => { this.results = response.results; },
         (err: any) => { console.log(err); }
     );

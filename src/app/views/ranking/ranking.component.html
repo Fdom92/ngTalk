@@ -29,29 +29,20 @@
     </tr>
   </table>
 </form>
-<md-card *ngFor="let result of results">
-  <!--<md-card-title> {{result.original_title || result.original_name}} </md-card-title>-->
-  <!--<md-card-content>-->
-    <!--<div>-->
-      <!--<span> Rate: </span>-->
-      <!--<span> {{result.vote_average}} </span>-->
-    <!--</div>-->
-  <!--</md-card-content>-->
-  <md-card class="example-card">
-    <md-card-header>
-      <div md-card-avatar class="example-header-image"></div>
-      <md-card-title>{{ result.name }}</md-card-title>
-      <md-card-subtitle>{{result.first_air_date}}</md-card-subtitle>
-    </md-card-header>
-    <img md-card-image src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{ result.poster_path }}">
-    <md-card-content>
-      <p>
-        {{ result.overview}}
-      </p>
-    </md-card-content>
-    <md-card-actions>
-      <button md-button>LIKE</button>
-      <button md-button>SHARE</button>
-    </md-card-actions>
-  </md-card>
+<md-card *ngFor="let result of results" class="example-card">
+  <md-card-header>
+    <div md-card-avatar class="example-header-image"></div>
+    <md-card-title>{{result.original_title || result.original_name}}</md-card-title>
+    <md-card-subtitle>Rate: {{result.vote_average}}</md-card-subtitle>
+  </md-card-header>
+  <img md-card-image src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{ result.poster_path }}">
+  <md-card-content>
+    <p>
+      {{ result.overview}}
+    </p>
+  </md-card-content>
+  <md-card-actions>
+    <button md-button>LIKE</button>
+    <button md-button>SHARE</button>
+  </md-card-actions>
 </md-card>

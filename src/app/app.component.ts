@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 import '../style/app.scss';
 
 @Component({
-  selector: 'my-app', // <my-app></my-app>
+  selector: 'my-app',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
@@ -18,16 +18,16 @@ export class AppComponent {
     // Do something with api
   }
 
-  checkUserLogin(){
+  checkUserLogin() {
     this.username = Cookie.get('username');
-    if(this.username){
-      return true
+    if (this.username) {
+      return true;
     } else {
       return false;
     }
   }
 
-  logout(){
+  logout() {
     Cookie.delete('username');
     Cookie.delete('session');
     this.router.navigate(['login']);
