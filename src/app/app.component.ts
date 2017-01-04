@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Config } from './services/config/config';
 import { Cookie } from 'ng2-cookies/ng2-cookies';
+import { Router } from '@angular/router';
 
 import '../style/app.scss';
 
@@ -13,8 +14,8 @@ export class AppComponent {
 
   username: string;
 
-  constructor(private config: Config) {
-
+  constructor(private config: Config, private router:Router) {
+    // Do something with api
   }
 
   checkUserLogin() {
@@ -29,6 +30,7 @@ export class AppComponent {
   logout() {
     Cookie.delete('username');
     Cookie.delete('session');
+    this.router.navigate(['login']);
   }
 
 }

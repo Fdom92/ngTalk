@@ -1,5 +1,7 @@
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Component, OnInit }                  from '@angular/core';
+import { Cookie } from 'ng2-cookies/ng2-cookies';
+import { Router } from '@angular/router';
 
 import {Auth} from '../../services/auth/auth';
 
@@ -11,20 +13,34 @@ import {Auth} from '../../services/auth/auth';
 })
 export class LoginComponent implements OnInit {
   filterForm: FormGroup;
+  message: string;
 
-  constructor( private auth: Auth, private formBuilder: FormBuilder) {
-
+  constructor( private auth: Auth, private formBuilder: FormBuilder, private router:Router) {
     this.filterForm = this.formBuilder.group({
-        id:   ['', Validators.required],
-        pwd: ['', Validators.required],
+        username:   ['', Validators.required],
+        password: ['', Validators.required],
     });
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+      if(Cookie.get('username') && Cookie.get('session')){
+          this.router.navigate(['']);
+      } else {
+          Cookie.delete('username');
+          Cookie.delete('session');
+      }
+  }
 
-  login() {
-    this.auth.createSession(this.filterForm.value.id, this.filterForm.value.pwd)
-      .then( data => { console.log('LOGIN OK', data); },
-             err  => { console.log('ERR', err); });
+  login(){
+    this.auth.createSession(this.filterForm.value.username,this.filterForm.value.password).then(
+        data =>{
+          console.log("LOGIN OK",data);
+          this.router.navigate(['']);
+        }, err => {
+          this.message = JSON.parse(err._body).status_message;
+        }
+    );
+
+
   }
 }

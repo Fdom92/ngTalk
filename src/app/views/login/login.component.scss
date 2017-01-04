@@ -1,7 +1,53 @@
-.content-title {
-    color: rgba(0,0,0,.54);
-    font-size: 20px;
-    font-weight: 400;
-    margin-bottom: 30px;
-    margin-top: 80px;
+.bodyLogin{
+  background-image: url("/img/wall.jpg");
+  height:100vh;
+  text-align: center;
+}
+
+.form {
+  position: relative;
+  z-index: 1;
+  max-width: 360px;
+  margin: auto auto;
+  vertical-align: middle;
+  padding: 45px;
+  text-align: center;
+}
+.form input {
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 25px;
+  text-align: center;
+}
+.form button {
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  background: #3f51b5;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  cursor: pointer;
+}
+.form button:hover,.form button:active,.form button:focus {
+  background: #2a3878;
+}
+.message {
+  padding: 10px;
+  display: inline-block;
+  border: 2px solid #af1c29;
+  background-color: #af4c62;
+  color: #b3b3b3;
+  font-size: 25px;
+}
+
+.login-form {
+  margin-top: 50%;
 }
