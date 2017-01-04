@@ -3,9 +3,12 @@
     <nav>
       <a md-button [routerLink]="['']">{{ 'Home' | uppercase }}</a>
       <a md-button [routerLink]="['ranking']">{{ 'Ranking' | uppercase }}</a>
-      <a md-button [routerLink]="['login']">{{ 'Login' | uppercase }}</a>
-
     </nav>
+    <a md-button class="login" [routerLink]="['login']" *ngIf="!checkUserLogin()">{{ 'Login' | uppercase }}</a>
+    <div class="login" *ngIf="checkUserLogin()">
+      <span>{{ username }}</span>
+      <a md-button (click)="logout()">{{ 'Log out' | uppercase }}</a>
+    </div>
   </md-toolbar>
 </header>
 

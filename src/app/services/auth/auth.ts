@@ -37,7 +37,8 @@ export class Auth {
                     this.http.get(this.config.urlApi+'/authentication/session/new?api_key='+this.config.apiKey+'&request_token='+data['request_token']).toPromise().then(
                         response => {
                             response = response.json();
-                            Cookie.set('session_id', response['session_id']);
+                            Cookie.set('session', response['session_id']);
+                            Cookie.set('username', username);
                             resolve({code:200, msg:'Ok'});
                         },
                         err => reject(err)

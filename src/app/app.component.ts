@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-
 import { Config } from './services/config/config';
+import { Cookie } from 'ng2-cookies/ng2-cookies';
 
 import '../style/app.scss';
 
@@ -10,9 +10,25 @@ import '../style/app.scss';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  url = 'https://github.com/preboot/angular2-webpack';
+
+  username: string;
 
   constructor(private config: Config) {
     // Do something with api
   }
+
+  checkUserLogin(){
+    this.username = Cookie.get('username');
+    if(this.username){
+      return true
+    } else {
+      return false;
+    }
+  }
+
+  logout(){
+    Cookie.delete('username');
+    Cookie.delete('session');
+  }
+
 }
