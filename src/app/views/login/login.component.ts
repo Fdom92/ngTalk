@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Cookie } from 'ng2-cookies/ng2-cookies';
 import { Router } from '@angular/router';
 
-import {Auth} from '../../services/auth/auth';
+import {Auth} from '../../services/auth/auth.service';
 
 @Component({
   selector: 'my-login',

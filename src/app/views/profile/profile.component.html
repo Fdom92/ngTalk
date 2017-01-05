@@ -1,3 +1,43 @@
-<p>
-    PROFILE
-</p>
+<div class="main">
+    {{ username }}
+
+    <md-tab-group>
+        <md-tab label="Created Lists">
+            <h1>Some more tab content</h1>
+            <p>...</p>
+        </md-tab>
+        <md-tab label="Favorite Movies">
+            <h1>Some more tab content</h1>
+            <p>...</p>
+        </md-tab>
+        <md-tab label="Favorite TV">
+            <md-card class="card" *ngFor="let item of userData.favoriteTV">
+                <md-card-header>
+                    <md-card-title>{{item.name}} ({{item.original_name}})</md-card-title>
+                    <md-card-subtitle>{{ item.genre_ids | category }}</md-card-subtitle>
+                </md-card-header>
+                <img md-card-image src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{ item.poster_path }}">
+                <md-card-content>
+                    <p>
+                        {{ item.overview }}
+                    </p>
+                    <p>{{item.vote_average}}<md-icon>star</md-icon></p>
+                </md-card-content>
+                <md-card-actions>
+                    <button md-button><md-icon>star</md-icon>LIKE</button>
+                    <button md-button><md-icon>star</md-icon>SHARE</button>
+                </md-card-actions>
+            </md-card>
+        </md-tab>
+        <md-tab label="WatchList Movies">
+            <h1>Some more tab content</h1>
+            <p>...</p>
+        </md-tab>
+        <md-tab label="WatchList TV">
+            <h1>Some more tab content</h1>
+            <p>...</p>
+        </md-tab>
+    </md-tab-group>
+
+
+</div>

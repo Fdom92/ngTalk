@@ -11,7 +11,10 @@ import { LoginComponent } from './views/login/login.component';
 import { ProfileComponent } from './views/profile/profile.component';
 
 
-import { Config } from './services/config/config';
+import { Config } from './services/config/config.service';
+
+import {Category} from './pipes/category/category.pipe';
+
 import { routing } from './app.routing';
 
 import { removeNgStyles, createNewHosts } from '@angularclass/hmr';
@@ -30,7 +33,8 @@ import { removeNgStyles, createNewHosts } from '@angularclass/hmr';
     HomeComponent,
     RankingComponent,
     LoginComponent,
-    ProfileComponent
+    ProfileComponent,
+    Category
   ],
   providers: [
     Config
