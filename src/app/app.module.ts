@@ -8,9 +8,13 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './views/home/home.component';
 import { RankingComponent } from './views/ranking/ranking.component';
 import { LoginComponent } from './views/login/login.component';
+import { ProfileComponent } from './views/profile/profile.component';
 
 
-import { Config } from './services/config/config';
+import { Config } from './services/config/config.service';
+
+import {Category} from './pipes/category/category.pipe';
+
 import { routing } from './app.routing';
 
 import { removeNgStyles, createNewHosts } from '@angularclass/hmr';
@@ -28,7 +32,9 @@ import { removeNgStyles, createNewHosts } from '@angularclass/hmr';
     AppComponent,
     HomeComponent,
     RankingComponent,
-    LoginComponent
+    LoginComponent,
+    ProfileComponent,
+    Category
   ],
   providers: [
     Config

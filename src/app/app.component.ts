@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Config } from './services/config/config';
+import { Config } from './services/config/config.service';
 import { Cookie } from 'ng2-cookies/ng2-cookies';
 import { Router } from '@angular/router';
 
