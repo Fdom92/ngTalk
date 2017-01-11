@@ -2,19 +2,20 @@ import { Component, OnInit } from '@angular/core';
 import { Cookie } from 'ng2-cookies/ng2-cookies';
 import { Router } from '@angular/router';
 import {User} from '../../services/user/user.service';
+import { UserClass } from '../../classes/user/user.class';
 
 @Component({
   selector: 'my-profile',
   templateUrl: 'profile.component.html',
   styleUrls: ['profile.component.scss'],
-    providers: [User],
+  providers: [User],
 })
 export class ProfileComponent implements OnInit {
-  message: string;
-  userData: any = {} //TODO hacer una clase User
+
+  userData: UserClass;
 
   constructor(  private router:Router, private user: User) {
-
+      this.userData = new UserClass({});
   }
 
   ngOnInit() {
@@ -27,7 +28,7 @@ export class ProfileComponent implements OnInit {
           let session = Cookie.get('session');
           this.user.getDetails(session).then(
               data => {
-                  this.userData = data;
+                  this.userData = new UserClass(data);
                   promises.push(this.user.getFavoriteMovies(session, this.userData.id));
                   promises.push(this.user.getFavoriteTV(session, this.userData.id));
                   promises.push(this.user.getWatchListMovies(session, this.userData.id));
@@ -51,6 +52,4 @@ export class ProfileComponent implements OnInit {
           )
       }
   }
-
-
 }
