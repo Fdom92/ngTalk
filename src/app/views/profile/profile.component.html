@@ -12,7 +12,7 @@
             <md-card class="card" *ngFor="let item of userData.favoriteMovies">
                 <md-card-header>
                     <md-card-title>{{item.name}} ({{item.original_name}})</md-card-title>
-                    <md-card-subtitle>{{ item.genre_ids | category }}</md-card-subtitle>
+                    <md-card-subtitle>{{ item.genre_ids | category:movieGenres }}</md-card-subtitle>
                 </md-card-header>
                 <img md-card-image src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{ item.poster_path }}">
                 <md-card-content>
@@ -34,7 +34,7 @@
             <md-card class="card" *ngFor="let item of userData.favoriteTV">
                 <md-card-header>
                     <md-card-title>{{item.name}} ({{item.original_name}})</md-card-title>
-                    <md-card-subtitle>{{ item.genre_ids | category }}</md-card-subtitle>
+                    <md-card-subtitle>{{ item.genre_ids | category:tvGenres }}</md-card-subtitle>
                 </md-card-header>
                 <img md-card-image src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{ item.poster_path }}">
                 <md-card-content>
@@ -56,7 +56,7 @@
             <md-card class="card" *ngFor="let item of userData.watchListMovies">
             <md-card-header>
                 <md-card-title>{{item.name}} ({{item.original_name}})</md-card-title>
-                <md-card-subtitle>{{ item.genre_ids | category }}</md-card-subtitle>
+                <md-card-subtitle>{{ item.genre_ids | category:movieGenres }}</md-card-subtitle>
             </md-card-header>
             <img md-card-image src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{ item.poster_path }}">
             <md-card-content>
@@ -78,7 +78,7 @@
             <md-card class="card" *ngFor="let item of userData.watchListTV">
                 <md-card-header>
                     <md-card-title>{{item.name}} ({{item.original_name}})</md-card-title>
-                    <md-card-subtitle>{{ item.genre_ids | category }}</md-card-subtitle>
+                    <md-card-subtitle>{{ item.genre_ids | category:tvGenres }}</md-card-subtitle>
                 </md-card-header>
                 <img md-card-image src="https://image.tmdb.org/t/p/w300_and_h450_bestv2/{{ item.poster_path }}">
                 <md-card-content>

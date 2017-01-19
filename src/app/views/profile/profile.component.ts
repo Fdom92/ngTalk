@@ -1,21 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import { Cookie } from 'ng2-cookies/ng2-cookies';
 import { Router } from '@angular/router';
-import {User} from '../../services/user/user.service';
+
 import { UserClass } from '../../classes/user/user.class';
+
+import {User} from '../../services/user/user.service';
+import {Genres} from '../../services/genres/genres.service'
 
 @Component({
   selector: 'my-profile',
   templateUrl: 'profile.component.html',
   styleUrls: ['profile.component.scss'],
-  providers: [User],
+  providers: [User, Genres],
 })
 export class ProfileComponent implements OnInit {
 
   userData: UserClass;
+  movieGenres: Array<any>;
+  tvGenres: Array<any>;
 
-  constructor(  private router:Router, private user: User) {
+  constructor(  private router:Router, private user: User, private genres: Genres) {
       this.userData = new UserClass({});
+      this.movieGenres = [];
+      this.tvGenres = [];
   }
 
   ngOnInit() {
@@ -33,6 +40,8 @@ export class ProfileComponent implements OnInit {
                   promises.push(this.user.getFavoriteTV(session, this.userData.id));
                   promises.push(this.user.getWatchListMovies(session, this.userData.id));
                   promises.push(this.user.getWatchListTV(session, this.userData.id));
+                  promises.push(this.genres.getMovieGenres());
+                  promises.push(this.genres.getTvGenres());
 
                   Promise.all(promises).then(
                       data => {
@@ -40,9 +49,13 @@ export class ProfileComponent implements OnInit {
                           this.userData.favoriteTV = data[1].results;
                           this.userData.watchListMovies = data[2].results;
                           this.userData.watchListTV = data[3].results;
+                          this.movieGenres = data[4].genres;
+                          this.tvGenres = data[5].genres;
                           console.log(this.userData);
+                          console.log('movieGenres',this.movieGenres);
+                          console.log('tvGenres',this.tvGenres);
                       }, err =>{
-                          console.log("ERrror promesasa", err)
+                          console.log("Error promesas", err)
                       }
                   )
 
